@@ -1,0 +1,11 @@
+.mypage {
+    display: flex;
+    flex-direction: column;
+    /* background-color: goldenrod; */
+    align-items: center;
+}
+
+.mypage .mypage-content {
+    width: 100%; 
+    max-width: 1080px;
+}

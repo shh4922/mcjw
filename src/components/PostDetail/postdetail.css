@@ -1,0 +1,54 @@
+.postdetail {
+    display: flex;
+    justify-content: center;
+    /* background-color: red; */
+    
+}
+.postdetail .postdetail-content {
+    width: 100%;
+    max-width: 1080px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.postdetail .postdetail-content .title {
+    font-size: 24px;
+    color: black;
+    padding: 10px 0;
+    
+}
+.postdetail .postdetail-content .content-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: 1px solid lightgray;
+    gap: 20px;
+    padding-bottom: 10px;
+}
+.postdetail .postdetail-content .content-info .editbutton {
+    color: #fff;
+    background: black;
+    font-size: 14px;
+    padding: 4px;
+    border-radius: 10px;
+}
+.postdetail .postdetail-content .content-info .editbutton:hover {
+    background-color: orange;
+}
+
+.postdetail .postdetail-content .content-info .date {
+    font-size: 15px;
+    color: gray;
+    
+    
+}
+
+.postdetail .postdetail-content .content {
+    margin-top: 20px;
+    font-size: 18px;
+    color: black;
+    white-space: pre-wrap;
+    
+}

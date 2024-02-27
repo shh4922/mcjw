@@ -1,6 +1,6 @@
-interface User {
+export interface User {
+    id: number,
     name: string,
     userid: string,
     auth: string
 }
-export default User

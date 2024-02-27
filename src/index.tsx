@@ -5,20 +5,24 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "./fonts/fonts.css";
 import { BrowserRouter } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import { PrimeReactProvider } from 'primereact/api';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const myContext = createContext("")
-
 root.render(
 
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <AuthProvider>
+        <PrimeReactProvider>
+          <App />
+        </PrimeReactProvider>
+      </AuthProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  // </React.StrictMode>
 
 
 );

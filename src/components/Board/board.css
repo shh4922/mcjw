@@ -1,0 +1,38 @@
+.board {
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+}
+
+.board .board-content {
+    width: 100%; 
+    max-width: 1080px;
+    /* background-color: red; */
+}
+.board .board-pagenation {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+    /* text-align: center; */
+    /* background-color: red; */
+    color: blue;
+}
+.board .board-pagenation a {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin-top: 20px;
+    font-size: 18px;
+    color: lightgray;
+    cursor: pointer;
+}
+.board .board-pagenation a:hover {
+    transition: all 0.3s;
+    color: black;
+}
+.board .board-pagenation a.active {
+    border-bottom: 1px solid black;
+    color: black;
+}

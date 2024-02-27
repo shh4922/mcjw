@@ -9,9 +9,11 @@ const customAxios = axios.create({
 customAxios.interceptors.request.use(
     (config) => {
         const access = localStorage.getItem("accessToken")
+        
         config.headers["Content-Type"] = "application/json"
         config.headers["Authorization"] = `Bearer ${access}`
         config.withCredentials = true
+        
         return config
     },
     (error) => {
@@ -23,7 +25,7 @@ customAxios.interceptors.request.use(
 customAxios.interceptors.response.use(
     (response) => { return response },
     async (error) => {
-        switch (error.response.status) {
+        switch (error?.response?.status) {
             case 401:
                 try {
                     const result = await axios.get(`${API.BASE_URL}${API.REFRESH_TOKEN}`, {
@@ -39,19 +41,20 @@ customAxios.interceptors.response.use(
                     return axios.request(error.config);
 
                 } catch (error) {
+                    alert("세션이 만료되었습니다.")
                     return Promise.reject("402")
                 }
             case 403:
-                console.error("유저정보없음")
-                return Promise.reject(403)
+                alert("유저정보기 없습니다.")
+                return Promise.reject(error)
             case 404:
                 console.error("url정보없음")
                 return Promise.reject(404)
             case 500:
-                console.error("서버에러")
+                alert("500:서버로부터 에러가 발생했습니다.")
                 return Promise.reject(500)
             default:
-                console.log("예상치못한 에러")
+                alert(error)
                 return Promise.reject(error)
         }
     }

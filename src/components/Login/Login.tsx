@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import "./login.css"
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import {API} from "../../api/config"
 import { customAxios } from "../../api/customApi";
-import { useAuth } from "../../AuthContext";
-import User from "../../interface/User";
+import { useAuth } from "../../context/AuthContext";
+import {User} from "../../interface/User";
 
 function Login() {
-    const { isLogin, user, setIsLogin, setUser } = useAuth();
-
     const [userId, setUserId] = useState("")
     const [password, setPassword] = useState("")
+
+    const { setIsLogin, setCurrentUser, currentUser } = useAuth();
     const navigator = useNavigate()
     
     const handleUserId = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,40 +22,35 @@ function Login() {
         setPassword(copyUserPassword)
     }
     
+    // 로그인버튼 클릭
     const handleLogin = () => {
         if(userId === "" || password ==="") {
             alert("입력 후 시도하세요")
             return
-        }
-        const login = async () => {
-            try {
-                const body = await { userid: userId, password: password}
-                const result = await customAxios.post(`${API.BASE_URL}${API.LOGIN}`, body)
-
-                localStorage.setItem("accessToken", result.data.accessToken)
-                
-                const userData: User = {
-                    name: result.data.user.name,
-                    userid: result.data.user.userid,
-                    auth: result.data.user.auth,
-                }
-                
-                await setIsLogin(`${localStorage.getItem("accessToken")}`)
-                
-                setUser(userData)
-                navigator("/my")
-            } catch(error) {
-                if(error === 403) {
-                    alert("유저정보가 없습니다.")
-                }
-                
-            }
-
-        }
+        }   
         login()
     }
+    
+    // 로그인 Post
+    const login = async () => {
+        try {
+            const body = await { userid: userId, password: password}
+            const result = await customAxios.post(`${API.BASE_URL}${API.LOGIN}`, body)
+
+            if(result.status === 200) {
+                localStorage.setItem("accessToken", result.data.accessToken)
+                setIsLogin(true) 
+                setCurrentUser(result.data.user)
+                navigator("/")
+            }
+
+        } catch(error) {
+            console.error(error)
+        }
+    }
+
     return (
-        <div className="wrap">
+        <div className="login">
             <div className="login-content">
                 <span className="login-title">LoginPage</span>
                 <input defaultValue={userId} placeholder="McId" onChange={handleUserId}></input>

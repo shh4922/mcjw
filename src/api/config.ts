@@ -8,7 +8,18 @@ export const API = {
     REFRESH_TOKEN: "/api/refreshToken",
 
     FETCH_USER: "/api/fetchUser",
+    
+    CREWS: "/api/users",
+
+    MY_POST: "/api/my",
     WRITE_POST: "/api/write",
-    MY_POST: "api/my"
+    CREWS_POSTS: "/api/posts",
+    UPDATE_POST: "/api/postupdate",
+    POST_DETAIL: "/api/detail",
+    POST_DELETE: "/api/postdelete",
+    
+    
+
+    
 
 }

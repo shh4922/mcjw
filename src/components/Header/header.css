@@ -33,6 +33,7 @@ nav {
     color: gray;
     text-align: center;
     padding: 10px 20px;
+    border-bottom: 2px solid transparent;
 }
 .links li a.active {
     border-bottom: 2px solid black;
@@ -40,7 +41,7 @@ nav {
     font-weight: 500;
 }
 .links li a:hover {
-    border-bottom: 2px solid blue;
+    border-bottom: 2px solid red;
     color: black;
 }
 
