@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+### 소개
+맥도날드 진월점 알바생들의 문의사항을 점장님께 익명으로 문의할수있는 마음의편지함 서비스입니다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+권한에 따라 보여지는 페이지가 다르며,
+알바생의 경우 글 생성, 수정, 삭제 등을 할수있으며
+매니저의 경우 알바생 회원가입, 탈퇴를 할수있고
+점장님의 경우 기본 매니저 권한에 추가로 알바생이 작성한 문의글을 볼수있습니다.
 
-## Available Scripts
+점장님의 반대로 서비스를 런칭하지는 못했습니다.
 
-In the project directory, you can run:
+### 사용기술
+- react18.2.0
+- expressJS
+- mysql
 
-### `npm start`
+### 기타
+- 인증의 경우 jwt를 사용하여 인증하였습니다
+- 토큰의 만료기한은 30분이며 refreshToken은 24시간 입니다.
+- ContextAPI 를 사용하여 로그인상태를 전역적으로 관리했습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+### 관리자 회원가입 페이지
+![스크린샷 2024-06-22 오후 5 52 02](https://github.com/shh4922/mcjw/assets/83321146/61f12e88-f3cd-4b81-b55d-4afca4ab44c4)
+- 매니저와 점장님 권한을 가진 새로운 사람을 회원가입 시킬수 있으며 권한을 부여할수있습니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 관리자페이지 
+![스크린샷 2024-06-22 오후 5 51 51](https://github.com/shh4922/mcjw/assets/83321146/76dc9994-c04e-4e73-bd7f-d602386950d4)
+- 관리자는 현재 가입된 알바생의 정보를 확인할수있습니다.
+- 테이블 헤더를 누름에따라 오름차순 내림차순으로 정렬이 가능합니다.
 
-### `npm run build`
+### 관리자 글확인 페이지
+![스크린샷 2024-06-22 오후 5 47 50](https://github.com/shh4922/mcjw/assets/83321146/88a67390-0b03-40d9-a5f3-28cb340f0552)
+- 점장님의 경우 알바생들의 문의내역을 확인할수있습니다.
+- 작성된 글은 모두 익명으로 처리되며 점장님또한 누가 작성했는지 알수없습니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 알바생 나의글 페이지
+![스크린샷 2024-06-22 오후 5 48 40](https://github.com/shh4922/mcjw/assets/83321146/f214eda5-5e93-4904-95b5-92483d8664bb)
+- 알바생의 경우 본인이 작성한 글을 읽고, 수정, 삭제 할수있습니다
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 알바생 글작성 페이지
+![스크린샷 2024-06-22 오후 5 48 08](https://github.com/shh4922/mcjw/assets/83321146/39c8c640-1c6b-4512-aa0c-842793a0305c)
+- 알바생의 글작성 페이지 입니다
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
